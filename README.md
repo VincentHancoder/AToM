@@ -45,7 +45,7 @@
 
 
 ## Acknowledgement
-We sincerely acknowledge and appreciate the exceptional open-source contributions that form the foundation of our work: [MotionGPT](https://github.com/OpenMotionLab/MotionGPT), [InstructMotion](https://github.com/THU-LYJ-Lab/InstructMotion).
+We sincerely acknowledge and appreciate the exceptional open-source contributions that form the foundation of our work: [MotionGPT](https://github.com/OpenMotionLab/MotionGPT), [InstructMotion](https://github.com/THU-LYJ-Lab/InstructMotion), [GPT-4V](https://arxiv.org/abs/2303.08774).
 ## Citation
 
 ```
