@@ -22,7 +22,7 @@
     <sup>1</sup>Shenzhen International Graduate School, Tsinghua University  &nbsp;&nbsp;&nbsp; <sup>2</sup>School of Informatics, Xiamen University &nbsp;&nbsp;&nbsp;
     <br>
     </br>
-        <a href=""><img src="https://img.shields.io/badge/ArXiv-2405.18525-brightgreen"></a> &nbsp; &nbsp;  &nbsp;
+        <a href="https://arxiv.org/pdf/2411.18654"><img src="https://img.shields.io/badge/ArXiv-2411.18654-brightgreen"></a> &nbsp; &nbsp;  &nbsp;
 <a href="https://atom-motion.github.io/"><img src="https://img.shields.io/badge/Demo-AToM-purple"></a>&nbsp; &nbsp;  &nbsp;
 <a href=""><img src="https://img.shields.io/badge/Dataset-MotionPrefer-blue"></a>
     </br> 
@@ -49,6 +49,14 @@ We sincerely acknowledge and appreciate the exceptional open-source contribution
 ## Citation
 
 ```
-
+@misc{han2024atomaligningtexttomotionmodel,
+      title={AToM: Aligning Text-to-Motion Model at Event-Level with GPT-4Vision Reward}, 
+      author={Haonan Han and Xiangzuo Wu and Huan Liao and Zunnan Xu and Zhongyuan Hu and Ronghui Li and Yachao Zhang and Xiu Li},
+      year={2024},
+      eprint={2411.18654},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2411.18654}, 
+}
 
 ```
