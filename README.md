@@ -46,7 +46,7 @@
 ## Installation
 
 ### dataset
-Download the HumanML3D dataset from https://github.com/EricGuo5513/HumanML3D, preprocess it according to their instructions, and put it under MotionGPT/datasets/humanml3d
+Download the HumanML3D dataset from https://github.com/EricGuo5513/HumanML3D, preprocess it according to their instructions, and put it under `MotionGPT/datasets/humanml3d`
 
 ### environment
 
