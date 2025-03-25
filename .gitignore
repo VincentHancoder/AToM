@@ -1,0 +1,7 @@
+__pycache__
+checkpoints
+datasets
+deps
+outputs
+pref_data
+wandb

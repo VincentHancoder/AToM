@@ -37,11 +37,87 @@
 ## Todo List
 - [x] 🪄 Release on arxiv!
 - [x] 🪄 Release demo page!
+- [x] 🔥 Release the fine-tuned model checkpoints and preference data example.
 - [ ] 🔥 Release fine-grained motion preference dataset MotionPrefer including 80K preference pairs.
 - [ ] 🔥 Release the instructions for prompt construction and alignment score annotations for different sub-tasks.
-- [ ] 🔥 Release the fine-tuned model checkpoints based on preference data of different types.
 - [ ] 🔥 Release more qualitative experimental results.
 
+
+## Installation
+
+### dataset
+Download the HumanML3D dataset from https://github.com/EricGuo5513/HumanML3D, preprocess it according to their instructions, and put it under MotionGPT/datasets/humanml3d
+
+### environment
+
+Our environment is the same as [MotionGPT](https://github.com/OpenMotionLab/MotionGPT) and [InstructMotion](https://github.com/THU-LYJ-Lab/InstructMotion)
+
+```
+conda create -n mgpt python=3.10
+conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.7 -c pytorch -c nvidia
+cd MotionGPT
+
+# if you only need training and testing (no visualization, suggested)
+pip install -r requirements_novis.txt
+
+# need visualization (takes longer)
+# pip install -r requirements.txt
+
+python -m spacy download en_core_web_sm
+bash prepare/download_smpl_model.sh
+bash prepare/prepare_t5.sh
+bash prepare/download_t2m_evaluators.sh
+bash prepare/download_pretrained_models.sh
+```
+
+
+## Inference
+
+Download [weights](https://drive.google.com/drive/folders/1boqS-DyVC-Zsk7iM194YuKinKq8XSH3R?usp=sharing) for MotionGPT-base `motiongpt_s3_h3d.tar` and general-finetuned `general_finetuned.pt`. Note that we only finetuned the t5 model so we still need the pretrained vae in MotionGPT-base. Put them under `MotionGPT/checkpoints/MotionGPT-base/` and `MotionGPT/checkpoints`, respectively.
+
+### reproduce results in the paper
+
+Testing MotionGPT-base: 
+
+```
+cd MotionGPT/
+python -m test --cfg configs/config_h3d_stage3.yaml --task t2m --checkpoint checkpoints/MotionGPT-base/motiongpt_s3_h3d.tar
+```
+
+Testing model finetuned in general (1200 pairs from Frequency, Integrity and Temporal tasks, respectively)
+
+```
+cd MotionGPT/
+python -m test --cfg configs/config_h3d_stage3.yaml --task t2m --checkpoint [ROOT_PATH]/atom/MotionGPT/checkpoints/general_finetuned.pt --peft --r 8 --lora_alpha 16 --lora_dropout 0.05
+```
+
+## Training
+
+### get preference dataset
+Download the [preference dataset](https://drive.google.com/file/d/1wV0HtEde7nNHKi0LMhmjhfKjeawWt5wC/view?usp=drive_link) for general task (3600 preference pairs in total).
+
+Put it under the folder `pref_data`, and unzip
+
+### finetune
+
+Train the model on preference dataset:
+
+1. configure ROOT_PATH in commands/dpo_train.sh
+
+2. ```bash commands/dpo_train.sh```
+
+
+## Preference Dataset Construction (TODO)
+
+1. Download the motion prompts (or construct by yourself)
+
+2. Generate motions given the prompts
+
+3. Render the motions in batch
+
+4. Feed the rendered motions to GPT-4o to get feedback (Caution: may consumes a lot of api-tokens)
+
+5. Construct the preference dataset
 
 
 ## Acknowledgement

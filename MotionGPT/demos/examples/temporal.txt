@@ -1,0 +1,4 @@
+A person walks forward, then is pushed to their right and then returns to walking in the line
+a person takes a seat, appears to make a throwing motion, and then stands up
+A person walks forwards doing ballet, then raising one leg, then skipping and raising the other leg
+A person walks forwards doing ballet, skipping, then raising one leg, and then skipping and raising the other leg
